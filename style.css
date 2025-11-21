@@ -42,6 +42,13 @@ section {
     text-align: center;
 }
 
+.section-subtitle { /* NOUVEAU: Sous-titre de section */
+    font-size: 1.1em;
+    color: #6a6a6a;
+    max-width: 800px;
+    margin: 10px auto 40px auto;
+}
+
 a {
     text-decoration: none;
     color: var(--color-primary);
@@ -58,7 +65,7 @@ a:hover {
     background-color: var(--color-primary);
     color: white;
     padding: 15px 35px;
-    border-radius: 50px; /* Bord arrondi pour l'élégance */
+    border-radius: 50px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
@@ -69,9 +76,14 @@ a:hover {
 }
 
 .cta-button:hover {
-    background-color: #9b774c; /* Variation plus sombre */
+    background-color: #9b774c;
     transform: translateY(-2px);
     color: white;
+}
+
+.small-cta { /* Style pour le bouton dans la section À Propos */
+    padding: 10px 25px;
+    font-size: 0.9em;
 }
 
 /*
@@ -81,14 +93,20 @@ a:hover {
 */
 header {
     background-color: var(--color-light);
-    padding: 20px 40px;
+    padding: 20px 0; /* Padding vertical, l'horizontal est dans le container */
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container { /* NOUVEAU: Conteneur pour le centrage et le flex */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-    position: sticky; /* Rendre le header fixe */
-    top: 0;
-    z-index: 1000;
 }
 
 nav ul {
@@ -121,7 +139,7 @@ nav a:hover {
     background-image: url('https://via.placeholder.com/1600x600/DCC5AE/FAF6F3?text=Photo+de+Gateaux+Elegants');
     background-size: cover;
     background-position: center 30%;
-    height: 500px; /* Légèrement plus haut pour un effet plus impactant */
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +156,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Assombrissement léger pour la lisibilité du texte */
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .hero-content {
@@ -161,7 +179,7 @@ nav a:hover {
 
 /*
 ====================================
-  SECTION À PROPOS
+  SECTION À PROPOS (avec image)
 ====================================
 */
 .about {
@@ -170,12 +188,39 @@ nav a:hover {
     border-bottom: 1px solid #eee;
 }
 
-.about p {
+.about-content { /* NOUVEAU: Conteneur Flex pour Texte + Image */
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    text-align: left; /* Aligner le texte à gauche dans la colonne */
+    margin-top: 40px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
     font-size: 1.15em;
     line-height: 1.8;
-    max-width: 900px;
-    margin: 25px auto;
+    margin: 25px 0;
 }
+
+.about-image {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 
 /*
 ====================================
@@ -188,7 +233,7 @@ nav a:hover {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mise en page flexible */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 40px;
 }
@@ -208,7 +253,7 @@ nav a:hover {
 
 .gallery-grid img {
     width: 100%;
-    height: 300px; /* Taille fixe pour l'uniformité */
+    height: 300px;
     display: block;
     object-fit: cover;
 }
@@ -295,7 +340,7 @@ nav a:hover {
 ====================================
 */
 footer {
-    background-color: var(--color-secondary); /* Fond sombre/brun foncé */
+    background-color: var(--color-secondary);
     color: white;
     text-align: center;
     padding: 30px 0;
@@ -304,7 +349,7 @@ footer {
 }
 
 footer a {
-    color: #ffd700; /* Un peu de doré pour le contact */
+    color: #ffd700;
     text-decoration: none;
 }
 
@@ -317,10 +362,21 @@ footer a:hover {
   MEDIA QUERIES (RESPONSIVE)
 ====================================
 */
+@media (max-width: 1024px) {
+    /* Ajout d'un point d'arrêt pour l'image */
+    .about-content {
+        gap: 30px;
+    }
+}
+
+
 @media (max-width: 768px) {
     header {
+        padding: 15px 0;
+    }
+    .header-container { /* Le header passe en colonne */
         flex-direction: column;
-        padding: 15px 20px;
+        padding: 0 20px;
     }
     nav ul {
         flex-direction: column;
@@ -344,7 +400,24 @@ footer a:hover {
     section {
         padding: 40px 15px;
     }
+
+    .about-content { /* La section À Propos passe en colonne */
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .about-image {
+        max-width: 100%;
+    }
+
     .gallery-grid {
         gap: 20px;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
     }
 }
