@@ -1,42 +1,94 @@
-/* Importation des polices */
+/*
+====================================
+  STYLES GLOBALS ET TYPOGRAPHIE
+====================================
+*/
+:root {
+    --color-primary: #B28A5B; /* Brun/Doré élégant pour les accents et CTA */
+    --color-secondary: #333333; /* Noir doux pour le texte */
+    --color-background: #FAF6F3; /* Fond Crème très clair */
+    --color-light: #FFFFFF;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f8f4f2; /* Fond couleur crème léger */
-    color: #4a4a4a;
+    background-color: var(--color-background);
+    color: var(--color-secondary);
+    line-height: 1.6;
 }
 
-/* Base et Typographie */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #a76d5e; /* Couleur terre cuite/chocolat */
+    color: var(--color-primary);
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 h1 {
-    font-size: 2.5em;
-    margin: 0;
+    font-size: 2.8em;
 }
 
 h2 {
-    font-size: 2.2em;
+    font-size: 2.4em;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 a {
     text-decoration: none;
-    color: #a76d5e;
+    color: var(--color-primary);
+    transition: color 0.3s;
 }
 
-/* 1 & 2. Header et Navigation */
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* Bouton CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px; /* Bord arrondi pour l'élégance */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #9b774c; /* Variation plus sombre */
+    transform: translateY(-2px);
+    color: white;
+}
+
+/*
+====================================
+  HEADER ET NAVIGATION
+====================================
+*/
 header {
-    background-color: #ffffff;
+    background-color: var(--color-light);
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    position: sticky; /* Rendre le header fixe */
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -44,48 +96,39 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 nav a {
-    color: #4a4a4a;
+    color: var(--color-secondary);
     font-weight: 500;
-    transition: color 0.3s;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
-    color: #a76d5e;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
 }
 
-/* Bouton CTA */
-.cta-button {
-    display: inline-block;
-    background-color: #a76d5e;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #8c5a4d;
-}
-
-/* 3. Section Héro */
+/*
+====================================
+  SECTION HERO
+====================================
+*/
 .hero {
-    background-image: url('https://via.placeholder.com/1600x600?text=Image+Fond+Gateaux+Patisserie'); /* Remplacer par une image de fond de haute qualité */
+    /* Utilisation d'une image de fond réaliste à remplacer ici */
+    background-image: url('https://via.placeholder.com/1600x600/DCC5AE/FAF6F3?text=Photo+de+Gateaux+Elegants');
     background-size: cover;
-    background-position: center;
-    height: 400px;
+    background-position: center 30%;
+    height: 500px; /* Légèrement plus haut pour un effet plus impactant */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
     position: relative;
+    margin-bottom: 40px;
 }
 
 .hero::before {
@@ -95,7 +138,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Assombrir légèrement l'image */
+    background: rgba(0, 0, 0, 0.3); /* Assombrissement léger pour la lisibilité du texte */
 }
 
 .hero-content {
@@ -104,99 +147,109 @@ nav a:hover {
 }
 
 .hero h2 {
-    color: white;
-    font-size: 3em;
+    color: var(--color-light);
+    font-size: 3.5em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* Sections générales */
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
+/*
+====================================
+  SECTION À PROPOS
+====================================
+*/
 .about {
-    background-color: #f2e9e6; /* Fond plus clair */
+    background-color: var(--color-background);
+    padding: 80px 20px;
+    border-bottom: 1px solid #eee;
 }
 
 .about p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 20px auto;
+    font-size: 1.15em;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 25px auto;
 }
 
-/* 5. Section Galerie */
+/*
+====================================
+  SECTION GALERIE
+====================================
+*/
 .gallery {
-    background-color: #ffffff;
+    background-color: var(--color-light);
 }
 
 .gallery-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mise en page flexible */
+    gap: 40px;
     margin-top: 40px;
-    flex-wrap: wrap;
 }
 
 .gallery-grid .item {
-    width: 30%;
-    min-width: 280px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background-color: var(--color-background);
 }
 
 .gallery-grid .item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-grid img {
     width: 100%;
-    height: auto;
+    height: 300px; /* Taille fixe pour l'uniformité */
     display: block;
     object-fit: cover;
 }
 
 .gallery-grid p {
-    padding: 15px;
-    background-color: #fff;
+    padding: 20px;
     font-weight: bold;
+    font-size: 1.1em;
     margin: 0;
+    color: var(--color-secondary);
 }
 
-/* 6. Section Contact et Formulaire */
+/*
+====================================
+  SECTION CONTACT ET FORMULAIRE
+====================================
+*/
 .contact {
-    background-color: #f2e9e6;
+    background-color: var(--color-background);
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 650px;
     margin: 30px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    background-color: var(--color-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     text-align: left;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #a76d5e;
+    color: var(--color-secondary);
+    font-size: 1.05em;
 }
 
 .form-group input[type="text"],
@@ -204,11 +257,20 @@ section {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Assure que le padding n'augmente pas la taille totale */
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
     font-size: 1em;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
 }
 
 .form-group textarea {
@@ -218,46 +280,71 @@ section {
 .contact-form .cta-button {
     width: 100%;
     text-align: center;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1em;
-    margin-top: 10px;
 }
 
 .note {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #6a6a6a;
-    margin-top: 20px;
+    margin-top: 25px;
+    text-align: center;
 }
 
-/* 7. Pied de page */
+/*
+====================================
+  PIED DE PAGE
+====================================
+*/
 footer {
-    background-color: #a76d5e;
+    background-color: var(--color-secondary); /* Fond sombre/brun foncé */
     color: white;
     text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
+    padding: 30px 0;
+    font-size: 0.95em;
+    margin-top: 40px;
 }
 
 footer a {
-    color: #fff;
+    color: #ffd700; /* Un peu de doré pour le contact */
+    text-decoration: none;
+}
+
+footer a:hover {
     text-decoration: underline;
 }
 
-/* Media Queries pour la réactivité */
+/*
+====================================
+  MEDIA QUERIES (RESPONSIVE)
+====================================
+*/
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        text-align: center;
+        padding: 15px 20px;
     }
     nav ul {
         flex-direction: column;
+        gap: 10px;
         margin-top: 15px;
+        width: 100%;
+    }
+    nav li {
+        width: 100%;
+    }
+    nav a {
+        display: block;
+        padding: 10px 0;
     }
     .hero h2 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
-    .gallery-grid .item {
-        width: 100%; /* Les éléments prennent toute la largeur sur mobile */
+    .hero {
+        height: 350px;
+    }
+    section {
+        padding: 40px 15px;
+    }
+    .gallery-grid {
+        gap: 20px;
     }
 }
