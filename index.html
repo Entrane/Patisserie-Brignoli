@@ -10,15 +10,17 @@
 <body>
 
     <header>
-        <h1>Les Douceurs d'Alice</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">Notre Histoire</a></li>
-                <li><a href="#galerie">Nos Créations</a></li>
-                <li><a href="#contact">Commande & Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <h1>Les Douceurs d'Alice</h1>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">Notre Histoire</a></li>
+                    <li><a href="#galerie">Nos Créations</a></li>
+                    <li><a href="#contact">Commande & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -32,11 +34,21 @@
 
         <section id="apropos" class="about">
             <h3>Notre Philosophie : L'Authenticité</h3>
-            <p>Chez Les Douceurs d'Alice, nous croyons au vrai goût des choses. Chaque gâteau, chaque cupcake est le fruit d'un travail **entièrement fait maison et artisanal**. Pas de raccourcis, juste des ingrédients frais, des recettes traditionnelles revisitées et beaucoup de patience. C'est la garantie d'une douceur exceptionnelle pour vos événements.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Chez Les Douceurs d'Alice, nous croyons au vrai goût des choses. Chaque gâteau, chaque cupcake est le fruit d'un travail **entièrement fait maison et artisanal**. Pas de raccourcis, juste des ingrédients frais, des recettes traditionnelles revisitées et beaucoup de patience. C'est la garantie d'une douceur exceptionnelle pour vos événements.</p>
+                    <p>Nous sélectionnons rigoureusement nos matières premières, privilégiant les **ingrédients locaux et de saison** pour vous offrir des saveurs aussi uniques que nos créations. De la pièce montée au cupcake le plus simple, chaque douceur est une œuvre d'art.</p>
+                    <a href="#contact" class="cta-button small-cta">Demander un Devis</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x500?text=Atelier+Artisanal" alt="Photo de l'atelier de la pâtissière ou des ingrédients">
+                </div>
+            </div>
         </section>
 
         <section id="galerie" class="gallery">
             <h3>Nos Créations Sucrées</h3>
+            <p class="section-subtitle">Découvrez une sélection de nos réalisations, allant des classiques réconfortants aux créations sur mesure les plus audacieuses.</p>
             <div class="gallery-grid">
                 <div class="item">
                     <img src="https://via.placeholder.com/350x350?text=Gateau+Personnalise" alt="Photo d'un gâteau d'anniversaire personnalisé">
